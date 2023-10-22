@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import Link from "next/link";
 import Image from "next/image";
@@ -20,8 +20,6 @@ const Nav = () => {
     setUpProviders();
   }, []);
 
-
-
   return (
     <nav className="flex-between w-full mb-16 pt-3">
       <Link href="/" className="flex gap-2 flex-center">
@@ -32,7 +30,7 @@ const Nav = () => {
           height={30}
           className="object-contain"
         />
-        <p className="logo_text">Promptnation</p>
+        <p className="logo_text invert">Promptnation</p>
       </Link>
 
       {/* Desktop navigation */}
@@ -76,46 +74,54 @@ const Nav = () => {
       <div className="sm:hidden flex relative">
         {session?.user ? (
           <div className="flex">
-          <div className="flex" id="onclick" onClick={()=>{setToggleDropdown(!toggleDropdown)}}>
-            <Image
-              src={session?.user.image}
-              width={37}
-              height={37}
-              className="rounded-full"
-              alt="profile"
-            />
-          </div>
-
-          {toggleDropdown && (
-            <div className="dropdown">
-              <Link
-                href="/profile"
-                className="dropdown_link"
-                onClick={() => setToggleDropdown(false)}
-              >
-                My Profile
-              </Link>
-              <Link
-                href="/create-prompt"
-                className="dropdown_link"
-                onClick={() => setToggleDropdown(false)}
-              >
-                Create Prompt
-              </Link>
-              <button
-                type="button"
-                onClick={() => {
-                  setToggleDropdown(false);
-                {signOut();}
-                }}
-                className="mt-5 w-full black_btn"
-              >
-                Sign Out
-              </button>
+            <div
+              className="flex"
+              id="onclick"
+              onClick={() => {
+                setToggleDropdown(!toggleDropdown);
+              }}
+            >
+              <Image
+                src={session?.user.image}
+                width={37}
+                height={37}
+                className="rounded-full"
+                alt="profile"
+              />
             </div>
-          )}
-        </div>  
-        ):(
+
+            {toggleDropdown && (
+              <div className="dropdown">
+                <Link
+                  href="/profile"
+                  className="dropdown_link"
+                  onClick={() => setToggleDropdown(false)}
+                >
+                  My Profile
+                </Link>
+                <Link
+                  href="/create-prompt"
+                  className="dropdown_link"
+                  onClick={() => setToggleDropdown(false)}
+                >
+                  Create Prompt
+                </Link>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setToggleDropdown(false);
+                    {
+                      signOut();
+                    }
+                  }}
+                  className="mt-5 w-full black_btn"
+                >
+                  Sign Out
+                </button>
+              </div>
+            )}
+          </div>
+        ) : (
           <div>
             {providers &&
               Object.values(providers).map((provider) => (
