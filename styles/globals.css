@@ -21,9 +21,9 @@
 .main:before {
   background: linear-gradient(
     to bottom right,
-    rgba(0, 56, 147, 0.7) 25%,
+    rgb(0, 39, 101) 25%,
     rgba(0, 0, 0, 1) 43%,
-    rgba(220, 20, 60, 0.8) 66%
+    rgb(170, 15, 46) 66%
   );
   background-attachment: fixed;
   position: absolute;
@@ -112,7 +112,7 @@
 }
 
 .search_input {
-  @apply block w-full rounded-md border border-gray-200 bg-white py-2.5 font-satoshi pl-5 pr-12 text-sm shadow-lg font-medium focus:border-black focus:outline-none focus:ring-0;
+  @apply block w-full rounded-md border border-gray-700 bg-black text-gray-200 py-2.5 font-satoshi pl-5 pr-12 text-sm shadow-lg font-medium focus:border-white focus:outline-none focus:ring-0;
 }
 
 .copy_btn {
